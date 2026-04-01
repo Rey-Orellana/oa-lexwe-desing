@@ -2,13 +2,17 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import { Anton } from "next/font/google"
 
 // 👇 AQUÍ defines la fuente
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400"],
 });
-
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+})
 export const metadata = {
   title: "Oalex Web",
   description: "Sitio profesional",

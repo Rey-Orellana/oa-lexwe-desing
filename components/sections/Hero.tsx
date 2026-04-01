@@ -1,3 +1,10 @@
+import { Anton } from "next/font/google";
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -20,11 +27,12 @@ export default function Hero() {
         }}
       />
 
-      {/* CONTENIDO */}
-      <div className="relative z-10 flex h-full items-center justify-center text-white text-center">
-        <div>
-          <h1 className="text-5xl font-bold mb-4">Bienvenido</h1>
-          <p className="text-lg">Tu sitio profesional comienza aquí</p>
+      {/* TEXTO POSICIÓN EXACTA FIGMA */}
+      <div className="absolute left-[79px] top-[350px] z-10">
+        <div className={`${anton.className} text-white text-left`}>
+          <h1 className="text-[96px] leading-[1.1]">IN IUSTITIA VERITAS</h1>
+
+          <h2 className="text-[96px] leading-[1.1]">AUDACIA JURIDICA</h2>
         </div>
       </div>
     </section>
