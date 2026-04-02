@@ -29,10 +29,10 @@ export default function Hero() {
 
       {/* TEXTO POSICIÓN EXACTA FIGMA */}
       <div className="absolute left-[79px] top-[350px] z-10">
-        <div className={`${anton.className} text-white text-left`}>
-          <h1 className="text-[96px] leading-[1.1]">IN IUSTITIA VERITAS</h1>
+        <div className={`${anton.className} text-[#ffffff] text-left`}>
+          <h1 className="text-[200px] leading-[1.1]">OA-LEX</h1>
 
-          <h2 className="text-[96px] leading-[1.1]">AUDACIA JURIDICA</h2>
+          <h2 className="text-[70px] leading-[1.1]">AYALA & ASOCIADOS</h2>
         </div>
       </div>
     </section>
