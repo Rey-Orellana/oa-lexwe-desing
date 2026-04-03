@@ -1,4 +1,7 @@
+"use client";
+
 import { Anton } from "next/font/google";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -6,10 +9,28 @@ const anton = Anton({
 });
 
 export default function Hero() {
+  const { scrollYProgress } = useScroll();
+
+  // 🎬 VIDEO → se desenfoca ligeramente
+  const blur = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    ["blur(0px)", "blur(6px)"]
+  );
+
+  // ✨ TEXTO → se desvanece
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.4],
+    [1, 0]
+  );
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* VIDEO */}
-      <video
+
+      {/* VIDEO CON MOTION */}
+      <motion.video
+        style={{ filter: blur }}
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/videos/Background O-ALex.mp4"
         autoPlay
@@ -18,7 +39,7 @@ export default function Hero() {
         playsInline
       />
 
-      {/* OVERLAY DEGRADADO */}
+      {/* OVERLAY */}
       <div
         className="absolute top-0 left-0 w-full h-full"
         style={{
@@ -27,14 +48,19 @@ export default function Hero() {
         }}
       />
 
-      {/* TEXTO POSICIÓN EXACTA FIGMA */}
-      <div className="absolute left-[79px] top-[350px] z-10">
-        <div className={`${anton.className} text-[#ffffff] text-left`}>
+      {/* TEXTO */}
+      <motion.div
+        style={{ opacity }}
+        className="absolute left-[79px] top-[350px] z-10"
+      >
+        <div className={`${anton.className} text-white text-left`}>
           <h1 className="text-[200px] leading-[1.1]">OA-LEX</h1>
-
-          <h2 className="text-[70px] leading-[1.1]">AYALA & ASOCIADOS</h2>
+          <h2 className="text-[70px] leading-[1.1]">
+            AYALA & ASOCIADOS
+          </h2>
         </div>
-      </div>
+      </motion.div>
+
     </section>
   );
 }
