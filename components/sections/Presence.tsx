@@ -13,7 +13,7 @@ export default function Presence() {
   return (
     <section className="w-full h-screen bg-black flex flex-col justify-center px-[80px]">
       {/* EYELASH */}
-      <div className="mb-[60px]">
+      <div className="mb-[60px] mt-[100px]">
         <Eyelash text="Presencia" />
       </div>
 
