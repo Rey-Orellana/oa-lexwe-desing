@@ -21,7 +21,7 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section   id="inicio"  className="relative h-screen w-full overflow-hidden">
       {/* VIDEO */}
       <motion.video
         style={{ filter: blur }}

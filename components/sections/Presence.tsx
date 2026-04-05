@@ -11,7 +11,10 @@ import {
 
 export default function Presence() {
   return (
-    <section id="presencia" className="w-full h-screen bg-black flex flex-col justify-center px-[80px]">
+    <section
+      id="presencia"
+      className="w-full h-screen bg-black flex flex-col justify-center px-[80px]"
+    >
       {/* EYELASH */}
       <div className="mb-[60px] mt-[100px]">
         <Eyelash text="Presencia" />
@@ -24,8 +27,8 @@ export default function Presence() {
             <CarouselItem className="pb-6">
               <LocationData
                 city="OR"
-                address={`C/Adolfo Mier y La Plata N° 150
-Interior Edificio Oruro`}
+                address={`La Plata entre Adolfo Mier y Junín,
+Edificio Oruro Oficina #105`}
               />
             </CarouselItem>
 

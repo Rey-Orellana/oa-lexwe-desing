@@ -19,7 +19,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer  className="w-full bg-black text-white py-20 flex flex-col items-center">
+    <footer id="contacto" className="w-full bg-black text-white py-20 flex flex-col items-center">
       {/* --- CONTENEDOR PRINCIPAL --- */}
       <div className="grid grid-cols-2 w-full max-w-[1200px] px-6 gap-0 items-center">
         {/* COLUMNA IZQUIERDA */}
