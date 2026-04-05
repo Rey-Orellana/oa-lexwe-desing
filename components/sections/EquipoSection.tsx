@@ -12,7 +12,7 @@ const manrope = Manrope({
 
 export default function EquipoSection() {
   return (
-    <section className="w-full h-screen bg-black flex items-center px-[80px]">
+    <section id="equipo" className="w-full h-screen bg-black flex items-center px-[80px]">
       {/* IZQUIERDA */}
       <div className="w-1/2 flex justify-center">
         <div className="w-[546px] h-[771px] bg-gray-300 rounded-[16px]" />

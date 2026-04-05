@@ -2,6 +2,7 @@
 
 import { Anton } from "next/font/google";
 import { motion, useScroll, useTransform } from "motion/react";
+import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -11,24 +12,17 @@ const anton = Anton({
 export default function Hero() {
   const { scrollYProgress } = useScroll();
 
-  // 🎬 VIDEO → se desenfoca ligeramente
   const blur = useTransform(
     scrollYProgress,
     [0, 0.5],
     ["blur(0px)", "blur(6px)"]
   );
 
-  // ✨ TEXTO → se desvanece
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.4],
-    [1, 0]
-  );
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-
-      {/* VIDEO CON MOTION */}
+      {/* VIDEO */}
       <motion.video
         style={{ filter: blur }}
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -55,12 +49,13 @@ export default function Hero() {
       >
         <div className={`${anton.className} text-white text-left`}>
           <h1 className="text-[200px] leading-[1.1]">OA-LEX</h1>
+
+          {/* 👇 SOLO AQUÍ EL EFECTO */}
           <h2 className="text-[70px] leading-[1.1]">
-            AYALA & ASOCIADOS
+            <RollingText text="AYALA & ASOCIADOS" className="inline-block" />
           </h2>
         </div>
       </motion.div>
-
     </section>
   );
 }
