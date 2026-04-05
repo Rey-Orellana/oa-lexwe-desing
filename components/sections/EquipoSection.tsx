@@ -4,6 +4,7 @@ import Eyelash from "@/components/ui/Eyelash";
 import { Accordion } from "@base-ui/react/accordion";
 import styles from "@/components/ui/accordion-base.module.css";
 import { Manrope } from "next/font/google";
+import CardChromaGrid from "@/components/ui/CardChromaGrid";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -12,11 +13,17 @@ const manrope = Manrope({
 
 export default function EquipoSection() {
   return (
-    <section id="equipo" className="w-full h-screen bg-black flex items-center px-[80px]">
+    <section
+      id="equipo"
+      className="w-full h-screen bg-black flex items-center px-[80px]"
+    >
       {/* IZQUIERDA */}
-      <div className="w-1/2 flex justify-center">
-        <div className="w-[546px] h-[771px] bg-gray-300 rounded-[16px]" />
-      </div>
+      <CardChromaGrid
+        image="/images/team/OscarAyala.jpg"
+        name="Oscar Ferrer Ayala Rocabado"
+        role="CEO"
+        handle="@OscarFererAyalaRocabado"
+      />
 
       {/* DERECHA */}
       <div className="w-1/2 flex flex-col justify-center pl-[80px]">
