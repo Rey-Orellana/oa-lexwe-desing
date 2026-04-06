@@ -15,14 +15,15 @@ const anton = Anton({
 interface Props {
   city: string;
   address: string;
+  video: string; // 🔥 NUEVO
 }
 
-export default function LocationData({ city, address }: Props) {
+export default function LocationData({ city, address, video }: Props) {
   return (
     <div
       className="
         w-full 
-        h-[480px]  /* 🔥 AQUI CAMBIAS ALTURA GENERAL (antes 420px) */
+        h-[480px]
         bg-black 
         rounded-[20px] 
         grid grid-cols-3 
@@ -35,9 +36,9 @@ export default function LocationData({ city, address }: Props) {
         className="
           col-span-1 
           flex flex-col 
-          justify-center   /* 🔥 CENTRADO VERTICAL (cambiar a start/end si quieres) */
-          items-center     /* 🔥 CENTRADO HORIZONTAL (cambiar a start/end) */
-          text-center      /* 🔥 ALINEACIÓN TEXTO (left / right / center) */
+          justify-center
+          items-center
+          text-center
         "
       >
         {/* TÍTULO */}
@@ -51,8 +52,9 @@ export default function LocationData({ city, address }: Props) {
         >
           {city}
         </h3>
-        {/* ESPACIO CONTROLADO */}
-        <div className="h-[10px]" /> {/* 🔥 CAMBIA AQUÍ separación */}
+
+        <div className="h-[10px]" />
+
         {/* DIRECCIÓN */}
         <p
           className={`
@@ -61,52 +63,23 @@ export default function LocationData({ city, address }: Props) {
             font-semibold 
             text-white 
             leading-[1.4]
+            whitespace-pre-line
           `}
         >
           {address}
         </p>
-        {/* BOTÓN */}
-        <button
-          className={`
-            ${manrope.className}
-            mt-6
 
-            w-[241px] 
-            h-[74px] 
-
-            rounded-full 
-
-            border border-[#FFAE00]  /* estado normal */
-            text-white 
-
-            text-[20px]
-
-            cursor-pointer  /* 🔥 manito */
-
-            transition-all duration-300 ease-in-out  /* 🔥 suavidad */
-
-            hover:bg-[#FFAE00]      /* 🔥 fill */
-            hover:border-transparent /* 🔥 quita borde */
-            hover:text-black         /* 🔥 texto negro */
-          `}
-        >
-          Maps
-        </button>
       </div>
 
-      {/* DERECHA (MAPA / IMAGEN) */}
-      <div className="col-span-2 w-full h-full flex items-center justify-center">
-        <div
-          className="
-            w-full 
-            h-full 
-            bg-[#D9D9D9] 
-            rounded-[16px]
-
-            /* 🔥 AQUI PUEDES CONTROLAR TAMAÑO INTERNO */
-            /* max-w-[800px] */
-            /* max-h-[420px] */
-          "
+      {/* DERECHA (VIDEO) */}
+      <div className="col-span-2 w-full h-full overflow-hidden rounded-[16px]">
+        <video
+          src={video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         />
       </div>
     </div>

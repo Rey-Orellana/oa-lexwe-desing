@@ -24,27 +24,33 @@ export default function Presence() {
       <div className="w-full">
         <Carousel orientation="vertical">
           <CarouselContent className="h-[500px]">
+            {/* ORURO */}
             <CarouselItem className="pb-6">
               <LocationData
                 city="OR"
                 address={`La Plata entre Adolfo Mier y Junín,
 Edificio Oruro Oficina #105`}
+                video="/videos/OruroBackground.webm"
               />
             </CarouselItem>
 
+            {/* LA PAZ */}
             <CarouselItem className="pb-6">
               <LocationData
                 city="LP"
                 address={`Av. Siempre Viva 742
 La Paz, Bolivia`}
+                video="/videos/LaPazBackground.webm"
               />
             </CarouselItem>
 
+            {/* COCHABAMBA 🔥 (ANTES SC) */}
             <CarouselItem className="pb-6">
               <LocationData
-                city="SC"
+                city="CB"
                 address={`Av. Empresarial 123
-Santa Cruz`}
+Cochabamba`}
+                video="/videos/CochabambaBackground.webm"
               />
             </CarouselItem>
           </CarouselContent>
