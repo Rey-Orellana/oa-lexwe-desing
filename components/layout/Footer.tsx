@@ -16,10 +16,14 @@ export default function Footer() {
     "youtube",
     "instagram",
     "internet",
+    "email", // 👈 🔥 AGREGADO
   ];
 
   return (
-    <footer id="contacto" className="w-full bg-black text-white py-20 flex flex-col items-center">
+    <footer
+      id="contacto"
+      className="w-full bg-black text-white py-20 flex flex-col items-center"
+    >
       {/* --- CONTENEDOR PRINCIPAL --- */}
       <div className="grid grid-cols-2 w-full max-w-[1200px] px-6 gap-0 items-center">
         {/* COLUMNA IZQUIERDA */}
@@ -86,7 +90,7 @@ export default function Footer() {
 function SocialIcon({ name }: { name: string }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Construimos la ruta: nombre.svg o nombreYellow.svg
+  // 🔥 ya soporta email automáticamente
   const iconSrc = `/images/icons/${name}${isHovered ? "Yellow" : ""}.svg`;
 
   return (
