@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Eyelash from "@/components/ui/Eyelash";
 import { Accordion } from "@base-ui/react/accordion";
 import styles from "@/components/ui/accordion-base.module.css";
@@ -11,7 +12,54 @@ const manrope = Manrope({
   weight: ["400", "800"],
 });
 
+/* 🔥 DATA DEL EQUIPO */
+const team = {
+  "item-1": {
+    image: "/images/team/OscarAyala.jpg",
+    name: "Oscar Ferrer Ayala Rocabado",
+    role: "CEO",
+    handle: "@OscarFererAyalaRocabado",
+  },
+  "item-2": {
+    image: "/images/team/default.jpg",
+    name: "Asociado Senior",
+    role: "Asociado Senior",
+    handle: "@asociado",
+  },
+  "item-3": {
+    image: "/images/team/default.jpg",
+    name: "Especialista Penal I",
+    role: "Asesor Especialista Penal",
+    handle: "@penal1",
+  },
+  "item-4": {
+    image: "/images/team/default.jpg",
+    name: "Especialista Penal II",
+    role: "Asesor Especialista Penal II",
+    handle: "@penal2",
+  },
+  "item-5": {
+    image: "/images/team/default.jpg",
+    name: "Especialista Penal III",
+    role: "Asesor Especialista Penal III",
+    handle: "@penal3",
+  },
+};
+
 export default function EquipoSection() {
+  const [activeItem, setActiveItem] = useState<string>("");
+
+  /* ✅ FIX + DEFAULT CON DATOS CORRECTOS */
+  const current =
+    activeItem && team[activeItem as keyof typeof team]
+      ? team[activeItem as keyof typeof team]
+      : {
+          image: "/images/team/DefaultBackground2.jpg",
+          name: "O-A Lex",
+          role: "Estudio Jurídico",
+          handle: "@oa-lex",
+        };
+
   return (
     <section
       id="equipo"
@@ -19,20 +67,18 @@ export default function EquipoSection() {
     >
       {/* IZQUIERDA */}
       <CardChromaGrid
-        image="/images/team/OscarAyala.jpg"
-        name="Oscar Ferrer Ayala Rocabado"
-        role="CEO"
-        handle="@OscarFererAyalaRocabado"
+        image={current.image}
+        name={current.name}
+        role={current.role}
+        handle={current.handle}
       />
 
       {/* DERECHA */}
       <div className="w-1/2 flex flex-col justify-center pl-[80px]">
-        {/* EYELASH */}
         <div className="mb-[40px]">
           <Eyelash text="O-A Lex Team" />
         </div>
 
-        {/* TITULO */}
         <h2
           className={`${manrope.className} text-[38px] leading-[1.35] text-[#FFAE00] font-extrabold max-w-[650px] mb-[10px]`}
         >
@@ -40,9 +86,12 @@ export default function EquipoSection() {
           la diferencia en el servicio Jurídico
         </h2>
 
-        {/* ACCORDION */}
         <div className="max-w-[650px]">
-          <Accordion.Root defaultValue="item-1" className={styles.Accordion}>
+          <Accordion.Root
+            value={activeItem}
+            onValueChange={(val) => setActiveItem(val)}
+            className={styles.Accordion}
+          >
             <Accordion.Item value="item-1" className={styles.Item}>
               <Accordion.Header className={styles.Header}>
                 <Accordion.Trigger className={styles.Trigger}>
@@ -52,8 +101,7 @@ export default function EquipoSection() {
               </Accordion.Header>
               <Accordion.Panel className={styles.Panel}>
                 <div className={styles.Content}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Dirección estratégica y liderazgo de la firma.
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
@@ -67,7 +115,7 @@ export default function EquipoSection() {
               </Accordion.Header>
               <Accordion.Panel className={styles.Panel}>
                 <div className={styles.Content}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Gestión de casos complejos y coordinación legal.
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
@@ -81,7 +129,7 @@ export default function EquipoSection() {
               </Accordion.Header>
               <Accordion.Panel className={styles.Panel}>
                 <div className={styles.Content}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Especialización en derecho penal.
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
@@ -95,7 +143,7 @@ export default function EquipoSection() {
               </Accordion.Header>
               <Accordion.Panel className={styles.Panel}>
                 <div className={styles.Content}>
-                  Lorem ipsum dolor sit amet.
+                  Soporte avanzado en litigios penales.
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
@@ -109,7 +157,7 @@ export default function EquipoSection() {
               </Accordion.Header>
               <Accordion.Panel className={styles.Panel}>
                 <div className={styles.Content}>
-                  Lorem ipsum dolor sit amet.
+                  Apoyo especializado en procesos judiciales.
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
