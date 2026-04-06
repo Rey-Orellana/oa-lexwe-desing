@@ -54,7 +54,7 @@ export default function EquipoSection() {
     activeItem && team[activeItem as keyof typeof team]
       ? team[activeItem as keyof typeof team]
       : {
-          image: "/images/team/DefaultBackground2.jpg",
+          image: "/images/team/DefaultBackground3.jpg",
           name: "O-A Lex",
           role: "Estudio Jurídico",
           handle: "@oa-lex",
