@@ -46,11 +46,11 @@ const team = {
 };
 
 export default function EquipoSection() {
-  const [activeItem, setActiveItem] = useState<string>("");
+  const [activeItem, setActiveItem] = useState<string[]>([]);
 
   const current =
-    activeItem && team[activeItem as keyof typeof team]
-      ? team[activeItem as keyof typeof team]
+    activeItem.length > 0 && team[activeItem[0] as keyof typeof team]
+      ? team[activeItem[0] as keyof typeof team]
       : {
           image: "/images/team/DefaultBackground3.jpg",
           name: "O-A Lex",
@@ -83,8 +83,8 @@ export default function EquipoSection() {
 
         <h2
           className={`${manrope.className} text-[2rem] md:text-[2.375rem] leading-[1.2] md:leading-[1.35] text-[#FFAE00] font-extrabold max-w-[650px] mb-[10px]`}
-        >A
-          Profesionales que marcan <br />
+        >
+          A Profesionales que marcan <br />
           la diferencia en el servicio Jurídico
         </h2>
 
