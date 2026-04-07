@@ -12,7 +12,6 @@ const manrope = Manrope({
   weight: ["400", "800"],
 });
 
-/* 🔥 DATA DEL EQUIPO */
 const team = {
   "item-1": {
     image: "/images/team/OscarAyala.jpg",
@@ -49,7 +48,6 @@ const team = {
 export default function EquipoSection() {
   const [activeItem, setActiveItem] = useState<string>("");
 
-  /* ✅ FIX + DEFAULT CON DATOS CORRECTOS */
   const current =
     activeItem && team[activeItem as keyof typeof team]
       ? team[activeItem as keyof typeof team]
@@ -63,24 +61,27 @@ export default function EquipoSection() {
   return (
     <section
       id="equipo"
-      className="w-full h-screen bg-black flex items-center px-[80px]"
+      // Ajustamos el padding horizontal: px-6 en móvil, px-[80px] en desktop
+      className="w-full h-screen bg-black flex items-center px-6 md:px-[80px]"
     >
-      {/* IZQUIERDA */}
-      <CardChromaGrid
-        image={current.image}
-        name={current.name}
-        role={current.role}
-        handle={current.handle}
-      />
+      {/* IZQUIERDA: Se oculta en móvil (hidden), se muestra en md en adelante (md:block) */}
+      <div className="hidden md:block">
+        <CardChromaGrid
+          image={current.image}
+          name={current.name}
+          role={current.role}
+          handle={current.handle}
+        />
+      </div>
 
-      {/* DERECHA */}
-      <div className="w-1/2 flex flex-col justify-center pl-[80px]">
+      {/* DERECHA: w-full en móvil, w-1/2 en desktop. Eliminamos pl en móvil. */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-[80px]">
         <div className="mb-[40px]">
           <Eyelash text="O-A Lex Team" />
         </div>
 
         <h2
-          className={`${manrope.className} text-[38px] leading-[1.35] text-[#FFAE00] font-extrabold max-w-[650px] mb-[10px]`}
+          className={`${manrope.className} text-[2.375rem] leading-[1.35] text-[#FFAE00] font-extrabold max-w-[650px] mb-[10px]`}
         >
           Profesionales que marcan <br />
           la diferencia en el servicio Jurídico

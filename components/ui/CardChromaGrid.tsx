@@ -18,7 +18,7 @@ export default function CardChromaGrid({
   const items = [
     {
       image,
-      title: name,
+      title: name, // El componente ChromaGrid recibirá estos strings
       subtitle: role,
       handle,
       borderColor: "#FFAE00",
@@ -27,6 +27,7 @@ export default function CardChromaGrid({
   ];
 
   return (
+    // Se mantienen dimensiones del contenedor fijo según instrucción
     <div className="w-[546px] h-[700px]">
       <ChromaGrid items={items} />
     </div>
