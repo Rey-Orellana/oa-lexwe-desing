@@ -52,14 +52,15 @@ export default function Navbar() {
                   "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(102,102,102,0) 100%)",
               }}
             />
-            <div className="absolute bottom-0 w-full h-[1px] bg-white/10" />
+            {/* Altura de línea convertida: 1px -> 0.0625rem */}
+            <div className="absolute bottom-0 w-full h-[0.0625rem] bg-white/10" />
           </div>
         )}
 
-        {/* NAV */}
-        <nav className="relative flex items-center justify-center h-[100px]">
-          {/* LOGO IZQUIERDA */}
-          <div className="absolute left-[43px] flex items-center h-full group">
+        {/* NAV - Altura convertida: 100px -> 6.25rem */}
+        <nav className="relative flex items-center justify-center h-[6.25rem]">
+          {/* LOGO IZQUIERDA - Posición convertida: 43px -> 2.6875rem */}
+          <div className="absolute left-[2.6875rem] flex items-center h-full group">
             <Image
               src="/images/OALex.webp"
               alt="Logo"
@@ -77,42 +78,44 @@ export default function Navbar() {
             />
           </div>
 
-          {/* MENU DESKTOP (CENTRADO 🔥) */}
-          <ul className="hidden md:flex gap-10 text-[1rem] text-white items-center h-full">
+          {/* MENU DESKTOP - Gap convertido: 10 -> 2.5rem */}
+          <ul className="hidden md:flex gap-[2.5rem] text-[1rem] text-white items-center h-full">
             {["inicio", "equipo", "presencia", "contacto"].map((item) => (
               <li key={item}>
                 <a href={`#${item}`} className="relative group capitalize">
                   {item}
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#FFAE00] transition-all duration-300 group-hover:w-full"></span>
+                  {/* Línea hover: 2px -> 0.125rem */}
+                  <span className="absolute left-0 -bottom-[0.25rem] w-0 h-[0.125rem] bg-[#FFAE00] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
           </ul>
 
-          {/* HAMBURGUESA */}
+          {/* HAMBURGUESA - Gap y posición: 20px -> 1.25rem | 2px -> 0.125rem */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="absolute right-[20px] md:hidden flex flex-col gap-1 z-50"
+            className="absolute right-[1.25rem] md:hidden flex flex-col gap-[0.25rem] z-50"
           >
-            <span className="w-6 h-[2px] bg-white"></span>
-            <span className="w-6 h-[2px] bg-white"></span>
-            <span className="w-6 h-[2px] bg-white"></span>
+            <span className="w-[1.5rem] h-[0.125rem] bg-white"></span>
+            <span className="w-[1.5rem] h-[0.125rem] bg-white"></span>
+            <span className="w-[1.5rem] h-[0.125rem] bg-white"></span>
           </button>
         </nav>
       </header>
 
-      {/* 🔥 MENU MOBILE FULLSCREEN CORREGIDO */}
+      {/* 🔥 MENU MOBILE FULLSCREEN */}
       {menuOpen && (
         <div className="fixed inset-0 bg-black z-[999] flex items-center justify-center">
-          {/* BOTÓN CERRAR */}
+          {/* BOTÓN CERRAR - Tamaño: 3xl (~30px) -> 2rem (32px) */}
           <button
             onClick={() => setMenuOpen(false)}
-            className="absolute top-8 right-8 text-white text-3xl"
+            className="absolute top-[2rem] right-[2rem] text-white text-[2rem]"
           >
             ✕
           </button>
 
-          <ul className="flex flex-col gap-10 text-white text-[32px] font-semibold text-center">
+          {/* Lista Mobile - Texto: 32px -> 2rem | Gap: 10 -> 2.5rem */}
+          <ul className="flex flex-col gap-[2.5rem] text-white text-[2rem] font-semibold text-center">
             {["inicio", "equipo", "presencia", "contacto"].map((item) => (
               <li key={item}>
                 <a
