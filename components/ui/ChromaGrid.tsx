@@ -118,7 +118,6 @@ export default function ChromaGrid({
         <div className="chroma-img-wrapper">
           <img src={item.image} alt={item.title} />
         </div>
-
         <footer className="chroma-info">
           <div className="chroma-header">
             <h3 className="name">{item.title}</h3>

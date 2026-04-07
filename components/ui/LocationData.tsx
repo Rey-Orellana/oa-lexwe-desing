@@ -15,7 +15,7 @@ const anton = Anton({
 interface Props {
   city: string;
   address: string;
-  video: string; // 🔥 NUEVO
+  video: string;
 }
 
 export default function LocationData({ city, address, video }: Props) {
@@ -23,56 +23,57 @@ export default function LocationData({ city, address, video }: Props) {
     <div
       className="
         w-full 
-        h-[480px]
+        h-auto md:h-[480px]
         bg-black 
         rounded-[20px] 
-        grid grid-cols-3 
+        grid grid-cols-1 md:grid-cols-3 
         gap-6 
-        p-8
+        p-6 md:p-8
       "
     >
-      {/* IZQUIERDA */}
+      {/* SECCIÓN TEXTOS */}
       <div
         className="
           col-span-1 
-          flex flex-col 
-          justify-center
-          items-center
+          flex flex-col md:justify-center md:items-center
           text-center
         "
       >
-        {/* TÍTULO */}
-        <h3
-          className={`
-            ${anton.className} 
-            text-[200px] 
-            leading-none 
-            text-[#FFAE00]
-          `}
-        >
-          {city}
-        </h3>
+        {/* Contenedor para alinear en móvil: Título Izq / Dirección Der */}
+        <div className="flex flex-row md:flex-col items-center justify-between md:justify-center w-full gap-4">
+          
+          {/* TÍTULO (City): 200px -> 12.5rem */}
+          <h3
+            className={`
+              ${anton.className} 
+              text-[8rem] md:text-[12.5rem] 
+              leading-none 
+              text-[#FFAE00]
+              text-left
+            `}
+          >
+            {city}
+          </h3>
 
-        <div className="h-[10px]" />
-
-        {/* DIRECCIÓN */}
-        <p
-          className={`
-            ${manrope.className} 
-            text-[24px] 
-            font-semibold 
-            text-white 
-            leading-[1.4]
-            whitespace-pre-line
-          `}
-        >
-          {address}
-        </p>
-
+          {/* DIRECCIÓN: 24px -> 1.5rem */}
+          <p
+            className={`
+              ${manrope.className} 
+              text-[1.1rem] md:text-[1.5rem] 
+              font-semibold 
+              text-white 
+              leading-[1.4]
+              whitespace-pre-line
+              text-right md:text-center
+            `}
+          >
+            {address}
+          </p>
+        </div>
       </div>
 
-      {/* DERECHA (VIDEO) */}
-      <div className="col-span-2 w-full h-full overflow-hidden rounded-[16px]">
+      {/* SECCIÓN VIDEO: Abajo en móvil (col-span-1), Al lado en desktop (col-span-2) */}
+      <div className="col-span-1 md:col-span-2 w-full h-[250px] md:h-full overflow-hidden rounded-[16px]">
         <video
           src={video}
           autoPlay
