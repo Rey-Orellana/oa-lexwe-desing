@@ -10,6 +10,10 @@ body {
   @apply bg-white text-black;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 @theme inline {
 
   --font-heading: var(--font-sans);
