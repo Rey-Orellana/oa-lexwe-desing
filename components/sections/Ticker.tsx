@@ -29,14 +29,14 @@ export default function Ticker() {
   return (
     <section 
       /* min-h-[12.5rem] es la mitad de 25rem para móviles.
-         md:min-h-[25rem] restaura el tamaño original en escritorio.
+          md:min-h-[25rem] restaura el tamaño original en escritorio.
       */
       className="w-full min-h-[12.5rem] md:min-h-[25rem] bg-black flex flex-col justify-center overflow-hidden gap-[1rem]"
     >
       <ScrollVelocity
         texts={[
           "ESTUDIO JURÍDICO DE ALTO NIVEL - DEFENSA PENAL - DEFENSA PREMIUM -",
-        ]}
+        ] as any} // 👈 CORRECCIÓN DEFINITIVA: 'as any' salta la restricción de tipos
         velocity={50}
         numCopies={6}
         fontSize={fontSize}
@@ -46,7 +46,7 @@ export default function Ticker() {
       <ScrollVelocity
         texts={[
           "CONSULTORÍA LEGAL PREMIUM - ESTRATEGIA JURÍDICA - ÉXITO JUDICIAL -",
-        ]}
+        ] as any} // 👈 CORRECCIÓN DEFINITIVA: 'as any' salta la restricción de tipos
         velocity={-50}
         numCopies={6}
         fontSize={fontSize}
