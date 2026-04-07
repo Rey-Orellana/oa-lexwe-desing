@@ -13,20 +13,23 @@ export default function Presence() {
   return (
     <section
       id="presencia"
-      // px-6 en móvil, px-[80px] en desktop. Altura flexible para que quepa el video abajo.
-      className="w-full min-h-screen bg-black flex flex-col justify-center px-6 md:px-[80px] py-20"
+      /* h-[75vh]: 75% del alto de pantalla en móviles.
+         md:h-screen: 100% del alto en escritorio.
+      */
+      className="w-full h-[75vh] md:h-screen bg-black flex flex-col justify-center px-6 md:px-[80px]"
     >
-      {/* EYELASH */}
-      <div className="mb-[40px] md:mb-[60px] mt-[60px] md:mt-[100px]">
+      {/* EYELASH - Reduje un poco los márgenes en móvil para que quepa bien en el 75% */}
+      <div className="mb-[20px] md:mb-[60px] mt-[20px] md:mt-[100px]">
         <Eyelash text="Presencia" />
       </div>
 
       {/* CAROUSEL */}
       <div className="w-full">
-        {/* En móvil la orientación suele ser mejor horizontal, 
-            pero mantengo vertical si así lo deseas, solo ajustando la altura del contenedor */}
         <Carousel orientation="vertical" className="w-full">
-          <CarouselContent className="h-[750px] md:h-[500px]">
+          {/* h-[450px]: Ajustado para el 75vh del móvil.
+             md:h-[500px]: Altura original para desktop.
+          */}
+          <CarouselContent className="h-[450px] md:h-[500px]">
             {/* ORURO */}
             <CarouselItem className="pb-6">
               <LocationData

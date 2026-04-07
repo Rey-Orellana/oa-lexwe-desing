@@ -61,10 +61,10 @@ export default function EquipoSection() {
   return (
     <section
       id="equipo"
-      // Ajustamos el padding horizontal: px-6 en móvil, px-[80px] en desktop
-      className="w-full h-screen bg-black flex items-center px-6 md:px-[80px]"
+      /* h-[75vh] para móvil (75%), md:h-screen para escritorio (100%) */
+      className="w-full h-[80vh] md:h-screen bg-black flex items-center px-6 md:px-[80px]"
     >
-      {/* IZQUIERDA: Se oculta en móvil (hidden), se muestra en md en adelante (md:block) */}
+      {/* IZQUIERDA: Se oculta en móvil */}
       <div className="hidden md:block">
         <CardChromaGrid
           image={current.image}
@@ -74,15 +74,16 @@ export default function EquipoSection() {
         />
       </div>
 
-      {/* DERECHA: w-full en móvil, w-1/2 en desktop. Eliminamos pl en móvil. */}
+      {/* DERECHA: w-full en móvil, w-1/2 en desktop */}
       <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-[80px]">
-        <div className="mb-[40px]">
+        {/* Ajuste de margen superior para móviles */}
+        <div className="mb-[20px] md:mb-[40px] mt-[10px] md:mt-0">
           <Eyelash text="O-A Lex Team" />
         </div>
 
         <h2
-          className={`${manrope.className} text-[2.375rem] leading-[1.35] text-[#FFAE00] font-extrabold max-w-[650px] mb-[10px]`}
-        >
+          className={`${manrope.className} text-[2rem] md:text-[2.375rem] leading-[1.2] md:leading-[1.35] text-[#FFAE00] font-extrabold max-w-[650px] mb-[10px]`}
+        >A
           Profesionales que marcan <br />
           la diferencia en el servicio Jurídico
         </h2>
