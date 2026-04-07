@@ -3,7 +3,7 @@
 import { Anton } from "next/font/google";
 import { motion, useScroll, useTransform } from "motion/react";
 import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
-
+{"Como estan muchachos, que les parece un par de chicles"}
 const anton = Anton({
   subsets: ["latin"],
   weight: "400",
@@ -41,7 +41,7 @@ export default function Hero() {
             "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(102,102,102,0) 100%)",
         }}
       />
-
+      {/*HACIENDO ALGUNOS CAMBIOS INNOTABLES*/}
       {/* TEXTO - Posiciones: 79px -> 4.9375rem | 350px -> 21.875rem */}
       <motion.div
         style={{ opacity }}
